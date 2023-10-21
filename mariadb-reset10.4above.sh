@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Reset Forgotten Mysql Root Password in Rescumode for CentMinMod Installer [CMM]
+# Reset Forgotten Mysql Root Password in Rescuemode for CentMinMod Installer [CMM]
 
 # Scripted by Brijendra Sial @ Bullten Web Hosting Solutions [https://www.bullten.com]
 
@@ -18,7 +18,7 @@ BLINK='\e[5m'
 echo " "
 echo -e "$GREEN*******************************************************************************$RESET"
 echo " "
-echo -e $YELLOW"Reset Forgotten Mysql Root Password in Rescumode for CentMinMod Installer [CMM]$RESET"
+echo -e $YELLOW"Reset Forgotten Mysql Root Password in Rescuemode for CentMinMod Installer [CMM]$RESET"
 echo " "
 echo -e $YELLOW"By Brijendra Sial @ Bullten Web Hosting Solutions [https://www.bullten.com]"$RESET
 echo " "
