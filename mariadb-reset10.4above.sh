@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Reset Forgotten Mysql Root Password in Rescuemode for CentMinMod Installer [CMM]
+# Reset Forgotten Mysql Root Password in Rescumode for CentMinMod Installer [CMM]
 
 # Scripted by Brijendra Sial @ Bullten Web Hosting Solutions [https://www.bullten.com]
 
@@ -18,7 +18,7 @@ BLINK='\e[5m'
 echo " "
 echo -e "$GREEN*******************************************************************************$RESET"
 echo " "
-echo -e $YELLOW"Reset Forgotten Mysql Root Password in Rescuemode for CentMinMod Installer [CMM]$RESET"
+echo -e $YELLOW"Reset Forgotten Mysql Root Password in Rescumode for CentMinMod Installer [CMM]$RESET"
 echo " "
 echo -e $YELLOW"By Brijendra Sial @ Bullten Web Hosting Solutions [https://www.bullten.com]"$RESET
 echo " "
@@ -44,8 +44,6 @@ echo " "
 echo -e $GREEN"Killing All MariaDB Processes"$RESET
 echo " "
 
-killall mysqld
-
 echo " "
 
 echo -e $GREEN"Starting MariaDB in Safemode"$RESET
@@ -68,13 +66,18 @@ echo " "
 
 echo -e $GREEN"Killing All MariaDB Processes"$RESET
 echo " "
-killall mysqld
+
+PID=`ps -eaf | grep mysql | grep -v grep | awk '{print $2}'`
+if [[ "" !=  "$PID" ]]; then
+   kill -9 $PID
+   wait $PID 2>/dev/null
+fi
 
 echo " "
 
 echo -e $GREEN"Restarting MariaDB Now"$RESET
 echo " "
-systemctl restart mariadb
+systemctl start mariadb
 
 echo -e $YELLOW"Your New Password is ${MYSQL_PASSWORD}"$RESET
 echo " "
